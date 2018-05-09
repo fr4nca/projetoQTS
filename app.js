@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const funcoes = {
     add: (a, b) => {
-        return a + b + 1
+        return a + b
     },
     nulo: () => null,
     verificaValor: (x) => x,
