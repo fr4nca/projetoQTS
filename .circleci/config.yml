@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+    # Define as imagens a serem instaladas no ambiente virtual, no caso, usamos o Node. 
+      - image: circleci/node:10.0.0
+      
+    working_directory: ~/repo
+    
+    # Começamos a definir os passos que serem executados
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      # O comando 'npm install' instala as dependências do projeto (instala a ferramenta Jest)
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      
+      # O passo onde de fato executa o comando do Jest para rodas os testes definidos. 
+      - run: npm test
+
+
