@@ -21,11 +21,11 @@ test('Usuario deve ser Victor França', () => {
 })
 
 test('Victor deve estar no array', () => {
-    usuarios = ['Victor', 'Ronan', 'Edgard']
+    usuarios = ['Ronan', 'Edgard']
     expect(usuarios).toContain('Victor')
 })
 
-//https://jsonplaceholder.typicode.com/users/1
+// https://jsonplaceholder.typicode.com/users/1
 test('Nome do usuario da requisição deve ser Leanne Graham', () => {
     return funcoes.getUsuario()
         .then(dado => {
