@@ -21,7 +21,7 @@ test('Usuario deve ser Victor França', () => {
 })
 
 test('Victor deve estar no array', () => {
-    usuarios = ['Ronan', 'Edgard']
+    usuarios = ['Victor', 'Ronan', 'Edgard']
     expect(usuarios).toContain('Victor')
 })
 
